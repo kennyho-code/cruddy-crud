@@ -1,74 +1,23 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { signup } from "../login/actions";
+import { Label } from "@/components/ui/label";
+import { signup } from "./actions";
 
-const formSchema = z.object({
-  username: z.string(),
-  password: z.string(),
-});
-
-function RegisterForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-      password: "",
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-
-    signup();
-  }
+async function RegisterForm() {
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <div className="flex gap-4">
-          <Button type="submit">Submit</Button>
-        </div>
-      </form>
-    </Form>
+    <form className="flex flex-col gap-4">
+      <div>
+        <Label htmlFor="email">Email:</Label>
+        <Input type="email" name="email" required />
+      </div>
+
+      <div>
+        <Label htmlFor="password">Password:</Label>
+        <Input type="password" name="password" required />
+      </div>
+
+      <Button formAction={signup}>Register</Button>
+    </form>
   );
 }
 
