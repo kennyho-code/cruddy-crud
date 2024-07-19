@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+import Header from "@/components/layout/Header";
+import SideBar from "@/components/layout/SideBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,29 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header />
+        <div className="flex">
+          <SideBar />
+
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
-
-const links = [
-  { href: "/feature-1", label: "Feature 1" },
-  { href: "/feature-2", label: "Feature 2" },
-  { href: "/feature-3", label: "Feature 3" },
-];
-
-function Header() {
-  <header>
-    <nav>
-      <ul>
-        {links.map((link) => (
-          <li key={link.label}>
-            <Link href={link.href}>{link.label}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </header>;
-}
-
-function SideBar() {}
