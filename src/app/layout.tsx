@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,3 +21,25 @@ export default function RootLayout({
     </html>
   );
 }
+
+const links = [
+  { href: "/feature-1", label: "Feature 1" },
+  { href: "/feature-2", label: "Feature 2" },
+  { href: "/feature-3", label: "Feature 3" },
+];
+
+function Header() {
+  <header>
+    <nav>
+      <ul>
+        {links.map((link) => (
+          <li key={link.label}>
+            <Link href={link.href}>{link.label}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </header>;
+}
+
+function SideBar() {}
