@@ -1,3 +1,8 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 type Link = {
   href: string;
   label: string;
@@ -10,12 +15,20 @@ const links: Link[] = [
 ];
 
 function SideBar() {
+  const pathName = usePathname();
   return (
     <aside className="bg-green-100 w-[200px] h-screen">
       <nav>
         <ul className="p-4 flex flex-col gap-4">
           {links.map((link) => (
-            <li key={link.href}>{link.label}</li>
+            <li key={link.label}>
+              <Link
+                className={pathName === link.href ? "text-blue-700" : ""}
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            </li>
           ))}
         </ul>
       </nav>

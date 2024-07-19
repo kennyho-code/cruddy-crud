@@ -5,11 +5,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import Link from "next/link";
 
 function Header() {
   return (
     <header className="bg-red-100 flex justify-between p-4">
-      <div>Logo</div>
+      <div>
+        <Link href="/">Logo</Link>
+      </div>
       <Profile />
     </header>
   );
