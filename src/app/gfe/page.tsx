@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-const links = [{ href: "/gfe/counter", label: "Counter" }];
+const links = [
+  { href: "/gfe/counter", label: "Counter" },
+  { href: "/gfe/accordion", label: "Accordion" },
+];
 
 function Feature3Page() {
   return (
