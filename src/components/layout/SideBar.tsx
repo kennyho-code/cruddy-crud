@@ -11,7 +11,7 @@ type Link = {
 const links: Link[] = [
   { href: "/feature-1", label: "Feature 1" },
   { href: "/feature-2", label: "Feature 2" },
-  { href: "/feature-3", label: "Feature 3" },
+  { href: "/gfe", label: "GFE" },
 ];
 
 function SideBar() {
