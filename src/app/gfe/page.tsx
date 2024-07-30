@@ -3,6 +3,7 @@ import Link from "next/link";
 const links = [
   { href: "/gfe/counter", label: "Counter" },
   { href: "/gfe/accordion", label: "Accordion" },
+  { href: "/gfe/contact-form", label: "Contact Form" },
 ];
 
 function Feature3Page() {
