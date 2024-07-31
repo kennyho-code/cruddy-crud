@@ -6,6 +6,7 @@ const links = [
   { href: "/gfe/contact-form", label: "Contact Form" },
   { href: "/gfe/flight-booker", label: "Flight Booker" },
   { href: "/gfe/job-stories", label: "Job Stories" },
+  { href: "/gfe/stop-watch", label: "Stop Watch" },
 ];
 
 function Feature3Page() {
